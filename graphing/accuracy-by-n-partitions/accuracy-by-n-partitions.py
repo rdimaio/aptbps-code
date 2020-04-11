@@ -1,31 +1,17 @@
 import subprocess
 import numpy as np
 from matplotlib import pyplot as plt
-from matplotlib import animation
 from mpl_toolkits.mplot3d import Axes3D
 from matplotlib import cm
 import itertools
-
 import os
 from scipy import stats
-# local dependencies
-from aptbps import aptbps
-from modelnet40 import load_modelnet40
-
 import csv
 
 SCRIPT_DIR = os.path.dirname(os.path.realpath(__file__))
 PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
 DATA_PATH = os.path.join(PROJECT_DIR, 'data')
 ACCS_PATH = os.path.join(DATA_PATH, 'accs')
-LOGS_PATH = os.path.join(PROJECT_DIR, 'logs')
-
-N_MODELNET_CLASSES = 40
-
-N_BPS_POINTS = 512
-BPS_RADIUS = 1
-
-n_parts = 5
 
 # Each .csv file has 1200 rows representing the accuracy at each epoch.
 # There are 20 columns, each one representing the number of partitions
@@ -125,33 +111,23 @@ ax.yaxis.grid(True, color='#EEEEEE')
 fig.tight_layout()
 ax.set_ylabel("Accuracy (%)")
 ax.set_xlabel("Number of partitions")
-#ax.set_yscale("log")
 
 marker = itertools.cycle((',', '^', 's', 'D', 'o')) 
 linestyle = itertools.cycle(("-","--","-.",(0, (3, 1, 1, 1))))
 
 x = np.arange(0, 19)
 
+# BPS data
 plt.axhline(y=bps_acc, color='b', linestyle='dotted', label="bps MLP", marker=next(marker))
 plt.errorbar(0, bps_acc, yerr=bps_sem,capsize=5)
-#plt.plot(accs, color='g', label="APTBPS-MLP", marker="o")
 
-#plt.plot(triangle_gkde_accs, color='C1', linestyle=next(linestyle), label="triangle-gkde MLP")
+# APTBPS data
 plt.errorbar(x, triangle_gkde_accs, linestyle=next(linestyle), yerr=triangle_gkde_sems, marker='o', markersize=4, capsize=5, label="triangle-gkde MLP")
-
 plt.errorbar(x, comp_gkde_accs, linestyle=next(linestyle), marker='o', yerr=comp_gkde_sems, markersize=4, capsize=5, label="comp-gkde MLP")
-#plt.plot(comp_gkde_accs, linestyle='--', label="comp-gkde MLP")
-
-#plt.plot(triangle_fftkde_accs,linestyle=next(linestyle), label="triangle-fftkde MLP")
 plt.errorbar(x, triangle_fftkde_accs,yerr=triangle_fftkde_sems, linestyle=next(linestyle), marker='o', markersize=4, capsize=5, label="triangle-fftkde MLP")
-
-#plt.plot(comp_fftkde_accs, linestyle=next(linestyle), label="comp-fftkde MLP")
 plt.errorbar(x, comp_fftkde_accs, yerr=comp_fftkde_sems, linestyle=next(linestyle), marker='o', markersize=4, capsize=5, label="comp-fftkde MLP")
 
-#plt.xlim(left=1, right=20)
-#plt.yticks(ticks=accs)
 plt.xticks(np.arange(len(triangle_fftkde_accs)), np.arange(2, len(triangle_fftkde_accs)+2))
-#plt.xticks(np.arange(len(accs)), np.arange(1, len(accs)+1))
 plt.grid(linestyle='--')
 plt.legend(loc="upper right")
 plt.show()
