@@ -14,14 +14,18 @@ from the training subset of the [ModelNet40](https://modelnet.cs.princeton.edu/)
 
 Each cloud is formed of 2048 points and is normalize to fit a unit ball.
 
-## Values
-Values:
-bps mean: 0.18784678974599925
-bps std: 0.0019620951073589525
-gkde aptbps mean: 17.71632170351896
-gkde aptbps std: 0.09248776022151502
-bps mean: 0.6485394895859975
-bps std: 0.017205025944769876
+## Data
+Data is organized in 3 `.csv` files, one for each encoding method. 
+Each file 1000 rows of data, one for each test iteration.
+
+This table summarizes the data:
+
+| Encoding method | Time (s) |
+| --- | --- |
+| GKDE APTBPS | 17.7163 ± 0.0925 |
+| FFTKDE APTBPS | 0.6485 ± 0.0172 |
+| BPS | 0.1879 ± 0.0020 |
+
 
 ## Graph
-![](graphs/encoding-time-comparison.svg?raw=true)
+![](graphs/encoding-time-comparison.png?raw=true)
