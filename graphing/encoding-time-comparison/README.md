@@ -6,7 +6,9 @@ meaning  that  it  is  not  affected  by  other processes.
 
 Test was repeated for 1000 iterations.
 
-The error bar is shown as 5*std to better display it (too small otherwise).
+The error is presented as the standard deviation over all iterations.
+The graphs display the error bar as the standard deviation values multiplied by 5,
+in order to better show them (too small otherwise).
 
 ### Input
 The input is made up of 100 point clouds randomly sampled
@@ -18,7 +20,7 @@ Each cloud is formed of 2048 points and is normalize to fit a unit ball.
 Data is organized in 3 `.csv` files, one for each encoding method. 
 Each file 1000 rows of data, one for each test iteration.
 
-This table summarizes the data:
+The table below summarizes the data.
 
 | Encoding method | Time (s) |
 | --- | --- |
