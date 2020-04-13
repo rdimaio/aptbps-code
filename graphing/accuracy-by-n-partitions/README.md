@@ -42,5 +42,6 @@ The table below summarizes the data.
 | 19 | - | 86.16 ± 0.04 | 85.88 ± 0.07 | 82.14 ± 0.06 | 82.79 ± 0.05 |
 | 20 | - | 86.21 ± 0.06 | 85.37 ± 0.04 | 82.54 ± 0.06 | 81.94 ± 0.05 | 
 
+
 ## Graph
 ![](graphs/accuracy-by-n-partitions-all.png?raw=true)
