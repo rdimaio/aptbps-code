@@ -4,4 +4,4 @@ Feel free to email me (or open an issue in this repo) if something doesn't work 
 
 Refer to the README files in the individual folders for more specific information.
 
-![APTBPS animation](graphing/animation/atpbps-stills.gif)
+![APTBPS animation](graphing/animation/aptbps-stills.gif)
