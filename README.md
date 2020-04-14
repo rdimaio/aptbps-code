@@ -1,4 +1,9 @@
-![](graphing/animation/aptbps-stills.gif)
+<div align="center">
+&nbsp;&nbsp;
+  <a href="https://github.com/rdimaio/aptbps-code">
+    <img src="graphing/animation/aptbps-stills.gif" alt="APTBPS animation" width="200"/>
+  </a>
+</div>
 
 Note: I slightly modified the implementation of aptbps after I used these files.
 I went back and changed the files to match the current implementation, but I might have missed something.
